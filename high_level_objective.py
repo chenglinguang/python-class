@@ -135,7 +135,28 @@ class Screen():
         return self.__height*self.__width
     
 
-    
-    
-    
+##################################
+####多重继承 inherit more fathers
+class Animal(object):
+    pass
+class Mammal(Animal):
+    pass
+class Bird(Animal):
+    pass
+class Runnable(object):
+    def run(self):
+        print('running.....')
+        
+class Flyable(object):
+    def fly(self):
+        print('flying......')
+        
+        
+class Dog(Mammal,Runnable):
+    pass
 
+class Bat(Mammal,Flyable):
+    pass
+
+
+class Cat(Mammal,Runnable):
