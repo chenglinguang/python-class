@@ -104,7 +104,84 @@ run_twice(Dog())
 #只要确保run()方法编写正确，不用管原来的代码是如何调用的。这就是著名的“开闭”原则：
     
 
+###use type to get the object style
+print(type(123))
+print(type('str'))
+print(type(abs))
 
+print(type(123)==int)
+print(type('abc')==str)
+
+#types 
+import types 
+def fn():
+    pass
+
+print(type(fn)==types.FunctionType)
+print(type(abs)==types.BuiltinFunctionType)
+print(type(lambda x: x)==types.LambdaType)
+print(type((x for x in range(10)))==types.GeneratorType)
+
+
+#isinstance
+print(isinstance('a', str))
+print(isinstance(123,int))
+print(isinstance(c,Animal))
+
+
+print(isinstance(c,Animal) and isinstance(c,Dog))
+
+
+print(isinstance([1, 2, 3], (list, tuple)))
+print(isinstance((1,2,3),(list,tuple)))
+
+
+
+#get the attr dir('ABC')
+print(dir('ABC'))
+
+print(len('ABC'))
+print('ABC'.__len__())
+print('ABC'.lower())
+
+
+
+class MyObject(object):
+    def __init__(self):
+        self.x=9
+    def power(self):
+        return self.x*self.x
+
+obj=MyObject()
+
+print(hasattr(obj,'x'))
+print(hasattr(obj,'y'))
+print(setattr(obj,'y',9))
+print(hasattr(obj,'y'))
+print(getattr(obj,'y'))
+print(obj.y)
+
+
+
+####attr
+
+class AStudent(object):
+    def __int__(self,name):
+        self.name=name
+        
+#s=AStudent('Bob')
+#s.score=50
+
+#class attribute
+class BStudent(object):
+    name='Student'
+    
+sb=BStudent()
+print(sb.name)       
+sb.name='Michael'
+print(sb.name)
+del sb.name
+print(sb.name)
 
 
 
